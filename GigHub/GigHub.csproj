@@ -195,6 +195,10 @@
     <Compile Include="Migrations\201812231747459_OverrideConverntionsForGigsAndGeneres.Designer.cs">
       <DependentUpon>201812231747459_OverrideConverntionsForGigsAndGeneres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812231759115_PopulateGeneresTable.cs" />
+    <Compile Include="Migrations\201812231759115_PopulateGeneresTable.Designer.cs">
+      <DependentUpon>201812231759115_PopulateGeneresTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -290,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812231747459_OverrideConverntionsForGigsAndGeneres.resx">
       <DependentUpon>201812231747459_OverrideConverntionsForGigsAndGeneres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812231759115_PopulateGeneresTable.resx">
+      <DependentUpon>201812231759115_PopulateGeneresTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
