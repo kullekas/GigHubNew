@@ -183,9 +183,20 @@
     <Compile Include="Migrations\201812231710318_InitialModel.Designer.cs">
       <DependentUpon>201812231710318_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812231726118_GreateGigTable.cs" />
+    <Compile Include="Migrations\201812231726118_GreateGigTable.Designer.cs">
+      <DependentUpon>201812231726118_GreateGigTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812231734443_GreateGigTable1.cs" />
+    <Compile Include="Migrations\201812231734443_GreateGigTable1.Designer.cs">
+      <DependentUpon>201812231734443_GreateGigTable1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Gig.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -266,6 +277,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201812231710318_InitialModel.resx">
       <DependentUpon>201812231710318_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812231726118_GreateGigTable.resx">
+      <DependentUpon>201812231726118_GreateGigTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812231734443_GreateGigTable1.resx">
+      <DependentUpon>201812231734443_GreateGigTable1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
