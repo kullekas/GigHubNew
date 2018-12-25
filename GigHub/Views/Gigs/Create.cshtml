@@ -6,23 +6,33 @@
 
 <h2>Add new Gig.</h2>
 
+
+<!--Form -->
 @using (Html.BeginForm("Create", "Gigs"))
 {
     <div class=" form-group">
         @Html.LabelFor(m => m.Venue)
-        @Html.TextBoxFor(m => m.Venue, new {@class = "form-control"})
+        @Html.TextBoxFor(m => m.Venue, new { @class = "form-control" })
+        <!--Validation message placeholder-->
+        @Html.ValidationMessageFor(m => m.Venue)
     </div>
     <div class=" form-group">
         @Html.LabelFor(m => m.Date)
-        @Html.TextBoxFor(m => m.Date, new {@class = "form-control"})
+        @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
+        <!--Validation message placeholder-->
+        @Html.ValidationMessageFor(m => m.Date)
     </div>
     <div class=" form-group">
         @Html.LabelFor(m => m.Time)
-        @Html.TextBoxFor(m => m.Time, new {@class = "form-control"})
+        @Html.TextBoxFor(m => m.Time, new { @class = "form-control" })
+        <!--Validation message placeholder-->
+        @Html.ValidationMessageFor(m => m.Time)
     </div>
     <div>
         @Html.LabelFor(m => m.Genre)
-        @Html.DropDownListFor(m => m.Genre, new SelectList(items: Model.Genres, dataValueField: "Id", dataTextField: "Name"), new {@class = "form-control"})
+        @Html.DropDownListFor(m => m.Genre, new SelectList(items: Model.Genres, dataValueField: "Id", dataTextField: "Name"), new { @class = "form-control" })
+        <!--Validation message placeholder-->
+        @Html.ValidationMessageFor(m => m.Genre)
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
 }

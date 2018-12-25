@@ -1,21 +1,30 @@
-﻿using System;
+﻿using GigHub.Models;
+using System;
 using System.Collections.Generic;
-using GigHub.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace GigHub.ViewModels
 {
     public class GigFormViewModel
     {
+        [Required]
         public string Venue { get; set; }
+
+        [Required]
         public string Date { get; set; }
+
+        [Required(ErrorMessage = "Välja Time täitmine on kohustuslik. ".)]
         public string Time { get; set; }
+
+        [Required]
         public int Genre { get; set; }
         //Can be List or array as well, but we use IEnumerable to iterate over objects.
         public IEnumerable<Genre> Genres { get; set; }
 
-        public DateTime DateTime
+        public DateTime GetDateTime()
         {
-            get { return DateTime.Parse($"{Date} {Time}"); }
+            //Parse will try to parse Your string to Datetime format.
+            return DateTime.Parse($"{Date} {Time}");
 
         }
     }

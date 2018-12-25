@@ -1,7 +1,6 @@
 ﻿using GigHub.Models;
 using GigHub.ViewModels;
 using Microsoft.AspNet.Identity;
-using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -34,9 +33,15 @@ namespace GigHub.Controllers
         [Authorize]
         [HttpPost] //On Post
         public ActionResult Create(GigFormViewModel viewModel)
-
-
         {
+            //Checks if the Model is valid.
+            if (!ModelState.IsValid)
+            {
+                //Loads Genres from Db. Cant be 0 for validation.
+                viewModel.Genres = _context.Genres.ToList();
+                return View("Create", viewModel);
+            }
+                
             //Returns Appliction user object, that can be associated eith this gig.
             //var artist = _context.Users.Single(u => u.Id == artistId);
 
@@ -48,7 +53,7 @@ namespace GigHub.Controllers
                 ArtistID = User.Identity.GetUserId(),
 
                 //But two stings from date in viewmodel together to one Datetime object.
-                DateTime =viewModel.DateTime,
+                DateTime = viewModel.GetDateTime(),
                 GenreId = viewModel.Genre,
                 Venue = viewModel.Venue
             };
