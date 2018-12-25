@@ -11,9 +11,11 @@ namespace GigHub.ViewModels
         public string Venue { get; set; }
 
         [Required]
+        [FutureDate] //This comes from created FutureDate Class.
         public string Date { get; set; }
 
-        [Required(ErrorMessage = "Välja Time täitmine on kohustuslik. ".)]
+        [Required(ErrorMessage = "Välja Time täitmine on kohustuslik. ")]
+        [ValidTime]
         public string Time { get; set; }
 
         [Required]
