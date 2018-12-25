@@ -25,7 +25,6 @@ namespace GigHub.Controllers
             {
                 //Genres from Db to list.
                 Genres = _context.Genres.ToList()
-
             };
 
             return View(viewmodel);
@@ -33,27 +32,24 @@ namespace GigHub.Controllers
 
         //Form submit Action button.
         [Authorize]
-        [HttpPost]  //On Post
+        [HttpPost] //On Post
         public ActionResult Create(GigFormViewModel viewModel)
 
 
         {
-            //Makeing varaible, cause SQL sentence cant read C# language. 
-            var artistId = User.Identity.GetUserId();
-
             //Returns Appliction user object, that can be associated eith this gig.
-            var artist = _context.Users.Single(u => u.Id == artistId);
+            //var artist = _context.Users.Single(u => u.Id == artistId);
 
             //Select Genre from Db.
-            var genre = _context.Genres.Single(g => g.Id == viewModel.Genre);
+            //var genre = _context.Genres.Single(g => g.Id == viewModel.Genre);
 
             var gig = new Gig
             {
-                Artist = artist,
+                ArtistID = User.Identity.GetUserId(),
 
                 //But two stings from date in viewmodel together to one Datetime object.
                 DateTime = DateTime.Parse($"{viewModel.Date} {viewModel.Time}"),
-                Genre = genre,
+                GenreId = viewModel.Genre,
                 Venue = viewModel.Venue
             };
 
@@ -65,7 +61,6 @@ namespace GigHub.Controllers
 
             //Post return. We are coing to redirect the user back to homepage.
             return RedirectToAction("Index", "Home");
-
         }
     }
 }

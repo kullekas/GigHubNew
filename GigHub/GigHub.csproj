@@ -200,6 +200,10 @@
     <Compile Include="Migrations\201812231759115_PopulateGeneresTable.Designer.cs">
       <DependentUpon>201812231759115_PopulateGeneresTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812250852093_AddForeigenKeyPropertiesToGig.cs" />
+    <Compile Include="Migrations\201812250852093_AddForeigenKeyPropertiesToGig.Designer.cs">
+      <DependentUpon>201812250852093_AddForeigenKeyPropertiesToGig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -300,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812231759115_PopulateGeneresTable.resx">
       <DependentUpon>201812231759115_PopulateGeneresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812250852093_AddForeigenKeyPropertiesToGig.resx">
+      <DependentUpon>201812250852093_AddForeigenKeyPropertiesToGig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
