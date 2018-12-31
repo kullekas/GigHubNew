@@ -1,4 +1,5 @@
 ﻿@using System.Web.Mvc.Html
+@using Microsoft.AspNet.Identity
 @model GigHub.ViewModels.GigFormViewModel
 @{
     ViewBag.Title = "Create";
@@ -10,27 +11,28 @@
 <!--Form -->
 @using (Html.BeginForm("Create", "Gigs"))
 {
+    <p class="alert alert-info" >All fields are <strong>required</strong>.</p>
     <div class=" form-group">
         @Html.LabelFor(m => m.Venue)
-        @Html.TextBoxFor(m => m.Venue, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Venue, new {@class = "form-control", autofocus = "autofocus", Value = User.Identity.GetUserName() })
         <!--Validation message placeholder-->
         @Html.ValidationMessageFor(m => m.Venue)
     </div>
     <div class=" form-group">
         @Html.LabelFor(m => m.Date)
-        @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Date, new {@class = "form-control", Value = DateTime.Now})
         <!--Validation message placeholder-->
         @Html.ValidationMessageFor(m => m.Date)
     </div>
     <div class=" form-group">
         @Html.LabelFor(m => m.Time)
-        @Html.TextBoxFor(m => m.Time, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Time, new {@class = "form-control", placeholder = "eg. 20:15"})
         <!--Validation message placeholder-->
         @Html.ValidationMessageFor(m => m.Time)
     </div>
     <div>
         @Html.LabelFor(m => m.Genre)
-        @Html.DropDownListFor(m => m.Genre, new SelectList(items: Model.Genres, dataValueField: "Id", dataTextField: "Name"), new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.Genre, new SelectList(items: Model.Genres, dataValueField: "Id", dataTextField: "Name"), new {@class = "form-control"})
         <!--Validation message placeholder-->
         @Html.ValidationMessageFor(m => m.Genre)
     </div>
@@ -38,7 +40,9 @@
 }
 
 <!--Adding Jequerry validation script. This is client side validation.-->
+
 @section scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
 }
+

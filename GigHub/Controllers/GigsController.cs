@@ -41,13 +41,13 @@ namespace GigHub.Controllers
                 viewModel.Genres = _context.Genres.ToList();
                 return View("Create", viewModel);
             }
-                
+
             //Returns Appliction user object, that can be associated eith this gig.
             //var artist = _context.Users.Single(u => u.Id == artistId);
-
-            //Select Genre from Db.
             //var genre = _context.Genres.Single(g => g.Id == viewModel.Genre);
 
+
+            //Select Genre from Db.
             var gig = new Gig
             {
                 ArtistID = User.Identity.GetUserId(),
@@ -58,7 +58,7 @@ namespace GigHub.Controllers
                 Venue = viewModel.Venue
             };
 
-            //We have a gig object and we need to hava it in the context.
+            //We have a gig object and we need to have it in the context.
             _context.Gigs.Add(gig);
 
             //Entity framework will make a SQL statement and save it to Db.
